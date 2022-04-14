@@ -2,7 +2,6 @@
   shell:
     # apr/14/2022 11:09:19 by RouterOS 6.48
 # software id = 8E5L-J9WJ
-#
 # model = RouterBOARD 952Ui-5ac2nD
 # serial number = 71AF08B9C787
     /interface bridge

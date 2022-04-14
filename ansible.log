@@ -1,0 +1,54 @@
+2022-04-14 18:26:29,484 p=92799 u=alessonviana n=ansible | ERROR! the playbook: /Users/alessonviana/Documents/Projetos/ does not appear to be a file
+2022-04-14 18:27:49,166 p=92920 u=alessonviana n=ansible | ansible-playbook [core 2.11.6] 
+  config file = /Users/alessonviana/Documents/Projetos/ Ansible/Mikrotik/ansible.cfg
+  configured module search path = ['/Users/alessonviana/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /Users/alessonviana/Library/Python/3.10/lib/python/site-packages/ansible
+  ansible collection location = /Users/alessonviana/.ansible/collections:/usr/share/ansible/collections
+  executable location = /Users/alessonviana/Library/Python/3.10/bin/ansible-playbook
+  python version = 3.10.0 (v3.10.0:b494f5935c, Oct  4 2021, 14:59:20) [Clang 12.0.5 (clang-1205.0.22.11)]
+  jinja version = 3.0.2
+  libyaml = True
+2022-04-14 18:27:49,166 p=92920 u=alessonviana n=ansible | Using /Users/alessonviana/Documents/Projetos/ Ansible/Mikrotik/ansible.cfg as config file
+2022-04-14 18:27:49,173 p=92920 u=alessonviana n=ansible | host_list declined parsing /Users/alessonviana/Documents/Projetos/ Ansible/Mikrotik/hosts/hosts as it did not pass its verify_file() method
+2022-04-14 18:27:49,173 p=92920 u=alessonviana n=ansible | script declined parsing /Users/alessonviana/Documents/Projetos/ Ansible/Mikrotik/hosts/hosts as it did not pass its verify_file() method
+2022-04-14 18:27:49,173 p=92920 u=alessonviana n=ansible | auto declined parsing /Users/alessonviana/Documents/Projetos/ Ansible/Mikrotik/hosts/hosts as it did not pass its verify_file() method
+2022-04-14 18:27:49,179 p=92920 u=alessonviana n=ansible | Parsed /Users/alessonviana/Documents/Projetos/ Ansible/Mikrotik/hosts/hosts inventory source with ini plugin
+2022-04-14 18:27:49,284 p=92920 u=alessonviana n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-04-14 18:27:49,284 p=92920 u=alessonviana n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-04-14 18:27:49,284 p=92920 u=alessonviana n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-04-14 18:27:49,284 p=92920 u=alessonviana n=ansible | PLAYBOOK: mikrotik.yml ************************************************************************************************************
+2022-04-14 18:27:49,284 p=92920 u=alessonviana n=ansible | 1 plays in mikrotik.yml
+2022-04-14 18:27:49,286 p=92920 u=alessonviana n=ansible | PLAY [Confiure Mikrotik on Alesson's home] ****************************************************************************************
+2022-04-14 18:27:49,303 p=92920 u=alessonviana n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2022-04-14 18:27:49,319 p=92923 u=alessonviana n=ansible | <192.168.23.1> ESTABLISH SSH CONNECTION FOR USER: alesson
+2022-04-14 18:27:49,328 p=92923 u=alessonviana n=ansible | <192.168.23.1> SSH: EXEC sshpass -d45 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'User="alesson"' -o ConnectTimeout=5 -o ControlPath=/Users/alessonviana/.ansible/cp/ae46194d67 192.168.23.1 '/bin/sh -c '"'"'echo ~alesson && sleep 0'"'"''
+2022-04-14 18:27:50,765 p=92923 u=alessonviana n=ansible | <192.168.23.1> (0, b'syntax error (line 1 column 5)\n', b'')
+2022-04-14 18:27:50,766 p=92923 u=alessonviana n=ansible | <192.168.23.1> ESTABLISH SSH CONNECTION FOR USER: alesson
+2022-04-14 18:27:50,767 p=92923 u=alessonviana n=ansible | <192.168.23.1> SSH: EXEC sshpass -d45 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'User="alesson"' -o ConnectTimeout=5 -o ControlPath=/Users/alessonviana/.ansible/cp/ae46194d67 192.168.23.1 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo syntax error (line 1 column 5)/.ansible/tmp `"&& mkdir "` echo syntax error (line 1 column 5)/.ansible/tmp/ansible-tmp-1649971670.766277-92923-279970648183531 `" && echo ansible-tmp-1649971670.766277-92923-279970648183531="` echo syntax error (line 1 column 5)/.ansible/tmp/ansible-tmp-1649971670.766277-92923-279970648183531 `" ) && sleep 0'"'"''
+2022-04-14 18:27:50,789 p=92923 u=alessonviana n=ansible | <192.168.23.1> (0, b'syntax error (line 1 column 5)\n', b'')
+2022-04-14 18:27:51,070 p=92923 u=alessonviana n=ansible | <192.168.23.1> Attempting python interpreter discovery
+2022-04-14 18:27:51,070 p=92923 u=alessonviana n=ansible | <192.168.23.1> ESTABLISH SSH CONNECTION FOR USER: alesson
+2022-04-14 18:27:51,071 p=92923 u=alessonviana n=ansible | <192.168.23.1> SSH: EXEC sshpass -d45 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'User="alesson"' -o ConnectTimeout=5 -o ControlPath=/Users/alessonviana/.ansible/cp/ae46194d67 192.168.23.1 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.8'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+2022-04-14 18:27:51,101 p=92923 u=alessonviana n=ansible | <192.168.23.1> (0, b'syntax error (line 1 column 5)\n', b'')
+2022-04-14 18:27:51,102 p=92923 u=alessonviana n=ansible | [WARNING]: Unhandled error in Python interpreter discovery for host 192.168.23.1: unexpected output from Python interpreter
+discovery
+
+2022-04-14 18:27:51,107 p=92923 u=alessonviana n=ansible | Using module file /Users/alessonviana/Library/Python/3.10/lib/python/site-packages/ansible/modules/setup.py
+2022-04-14 18:27:51,108 p=92923 u=alessonviana n=ansible | <192.168.23.1> PUT /Users/alessonviana/.ansible/tmp/ansible-local-9292000gm_nri/tmp_ckxcx3b TO syntax error (line 1 column 5)/AnsiballZ_setup.py
+2022-04-14 18:27:51,109 p=92923 u=alessonviana n=ansible | <192.168.23.1> SSH: EXEC sshpass -d45 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'User="alesson"' -o ConnectTimeout=5 -o ControlPath=/Users/alessonviana/.ansible/cp/ae46194d67 '[192.168.23.1]'
+2022-04-14 18:27:51,146 p=92923 u=alessonviana n=ansible | [WARNING]: sftp transfer mechanism failed on [192.168.23.1]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2022-04-14 18:27:51,148 p=92923 u=alessonviana n=ansible | <192.168.23.1> SSH: EXEC sshpass -d45 scp -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'User="alesson"' -o ConnectTimeout=5 -o ControlPath=/Users/alessonviana/.ansible/cp/ae46194d67 /Users/alessonviana/.ansible/tmp/ansible-local-9292000gm_nri/tmp_ckxcx3b '[192.168.23.1]:'"'"'syntax error (line 1 column 5)/AnsiballZ_setup.py'"'"''
+2022-04-14 18:27:51,180 p=92923 u=alessonviana n=ansible | [WARNING]: scp transfer mechanism failed on [192.168.23.1]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2022-04-14 18:27:51,181 p=92923 u=alessonviana n=ansible | <192.168.23.1> ESTABLISH SSH CONNECTION FOR USER: alesson
+2022-04-14 18:27:51,182 p=92923 u=alessonviana n=ansible | <192.168.23.1> SSH: EXEC sshpass -d45 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'User="alesson"' -o ConnectTimeout=5 -o ControlPath=/Users/alessonviana/.ansible/cp/ae46194d67 192.168.23.1 'dd of=syntax error (line 1 column 5)/AnsiballZ_setup.py bs=65536'
+2022-04-14 18:27:51,213 p=92923 u=alessonviana n=ansible | <192.168.23.1> (1, b'syntax error (line 1 column 37)\n', b'')
+2022-04-14 18:27:51,214 p=92923 u=alessonviana n=ansible | <192.168.23.1> Failed to connect to the host via ssh: 
+2022-04-14 18:27:51,214 p=92923 u=alessonviana n=ansible | [WARNING]: piped transfer mechanism failed on [192.168.23.1]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2022-04-14 18:27:51,220 p=92920 u=alessonviana n=ansible | fatal: [192.168.23.1]: FAILED! => {
+    "msg": "failed to transfer file to /Users/alessonviana/.ansible/tmp/ansible-local-9292000gm_nri/tmp_ckxcx3b syntax error (line 1 column 5)/AnsiballZ_setup.py:\nsyntax error (line 1 column 37)\n\n"
+}
+2022-04-14 18:27:51,222 p=92920 u=alessonviana n=ansible | PLAY RECAP ************************************************************************************************************************
+2022-04-14 18:27:51,222 p=92920 u=alessonviana n=ansible | 192.168.23.1               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

@@ -3,7 +3,9 @@
 
 [mikrotik:vars]
 ansible_ssh_user=alesson
-ansible_ssh_password=alesson23
+ansible_ssh_pass=alesson23
+ansible_become=yes
+ansible_connection=ssh
 
 
 [mikrotik_default]
