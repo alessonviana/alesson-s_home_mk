@@ -1,0 +1,7 @@
+---
+
+- name: Confiure Mikrotik on Alesson's home
+  hosts: mikrotik
+  become: yes
+  roles:
+    - configurations

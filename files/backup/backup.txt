@@ -1,0 +1,97 @@
+# apr/14/2022 11:09:19 by RouterOS 6.48
+# software id = 8E5L-J9WJ
+#
+# model = RouterBOARD 952Ui-5ac2nD
+# serial number = 71AF08B9C787
+/interface bridge
+add fast-forward=no name="bridge Rede_Local"
+/interface ethernet
+set [ find default-name=ether1 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full name=\
+    "ether1 "
+set [ find default-name=ether2 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+set [ find default-name=ether3 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+set [ find default-name=ether4 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+set [ find default-name=ether5 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+/interface list
+add name=WAN
+add name=LAN
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+add authentication-types=wpa-psk,wpa2-psk eap-methods="" \
+    management-protection=allowed mode=dynamic-keys name=Wifi \
+    supplicant-identity="" wpa-pre-shared-key=40028922 wpa2-pre-shared-key=\
+    40028922
+add authentication-types=wpa-psk,wpa2-psk eap-methods="" \
+    management-protection=allowed mode=dynamic-keys name=Visitantes \
+    supplicant-identity="" wpa-pre-shared-key=visitantes123 \
+    wpa2-pre-shared-key=visitantes123
+/interface wireless
+set [ find default-name=wlan1 ] antenna-gain=0 country=brazil disabled=no \
+    frequency-mode=superchannel mode=ap-bridge name="wlan1 2.4" \
+    security-profile=Visitantes ssid=Visitantes station-roaming=enabled \
+    wireless-protocol=802.11
+set [ find default-name=wlan2 ] antenna-gain=0 band=5ghz-a/n/ac country=\
+    no_country_set disabled=no frequency=5320 frequency-mode=superchannel \
+    mode=ap-bridge name="wlan2 5 G" security-profile=Wifi ssid=Wifi \
+    station-roaming=enabled wireless-protocol=802.11
+/ip pool
+add name=dhcp ranges=192.168.23.100-192.168.23.210
+/ip dhcp-server
+add address-pool=dhcp disabled=no interface="bridge Rede_Local" lease-time=\
+    1h40m name=dhcp1
+/user group
+set full policy="local,telnet,ssh,ftp,reboot,read,write,policy,test,winbox,pas\
+    sword,web,sniff,sensitive,api,romon,dude,tikapp"
+/interface bridge port
+add bridge="bridge Rede_Local" interface=ether2
+add bridge="bridge Rede_Local" interface=ether3
+add bridge="bridge Rede_Local" interface=ether4
+add bridge="bridge Rede_Local" interface=ether5
+add bridge="bridge Rede_Local" interface="wlan1 2.4"
+add bridge="bridge Rede_Local" interface="wlan2 5 G"
+/ip neighbor discovery-settings
+set discover-interface-list=dynamic
+/interface list member
+add list=WAN
+add interface="bridge Rede_Local" list=LAN
+/ip address
+add address=192.168.23.1/24 interface=ether2 network=192.168.23.0
+add address=192.168.55.1/24 interface=ether5 network=192.168.55.0
+/ip cloud
+set ddns-enabled=yes
+/ip dhcp-client
+add disabled=no interface="ether1 "
+/ip dhcp-server network
+add address=192.168.23.0/24 dns-server=208.67.222.222,208.67.220.220,8.8.8.8 \
+    gateway=192.168.23.1
+/ip firewall filter
+add action=accept chain=forward dst-address-list=22 src-address-list=22
+/ip firewall nat
+add action=masquerade chain=srcnat
+/ip service
+set telnet disabled=yes
+set ftp port=2123
+set www-ssl disabled=no
+/ip ssh
+set allow-none-crypto=yes forwarding-enabled=remote
+/ip upnp
+set enabled=yes
+/ip upnp interfaces
+add interface="bridge Rede_Local" type=internal
+add type=external
+/snmp
+set enabled=yes trap-version=2
+/system clock
+set time-zone-name=America/Fortaleza
+/system identity
+set name="Alesson - Home"
+/system scheduler
+add comment="Reboot Router " interval=1d name="Reboot Router Every Day" \
+    on-event="/system reboot" policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
+    start-date=jul/07/2020 start-time=04:00:00

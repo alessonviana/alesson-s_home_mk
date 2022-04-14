@@ -1,0 +1,13 @@
+[mikrotik]
+192.168.23.1
+
+[mikrotik:vars]
+ansible_ssh_user=alesson
+ansible_ssh_password=alesson23
+
+
+[mikrotik_default]
+192.168.88.1
+
+[mikrotik_default:vars]
+ansible_ssh_user=admin
