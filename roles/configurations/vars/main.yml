@@ -1,9 +1,12 @@
 dns-server: 208.67.222.222,208.67.220.220,8.8.8.8
-main_address: 192.168.23.0/24
-main_gateway: 192.168.23.1
+network_address: 192.168.23.0
+gateway_addres: 192.168.23.1
 main_ranges: 192.168.23.100-192.168.23.210
 ftp_port: 2123
 time_zone: America/Fortaleza
 rb_name: "Alesson - Home"
+main_wifi: Wifi
+secondary_wifi: Visitantes
 wifi_password: 40028922
 visitantes_password: visitantes123
+bridge_local: "bridge Rede_Local"
