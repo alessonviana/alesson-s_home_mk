@@ -12,5 +12,4 @@ ansible_network_os=routeros
 #[mikrotik_default]
 #192.168.88.1
 
-#[mikrotik_default:vars]
-#ansible_ssh_user=admin
+
