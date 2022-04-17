@@ -240,3 +240,4 @@ interpreter discovery
 }
 2022-04-14 18:43:55,075 p=94166 u=alessonviana n=ansible | PLAY RECAP ******************************************************************************************************
 2022-04-14 18:43:55,075 p=94166 u=alessonviana n=ansible | 192.168.23.1               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-04-16 22:35:40,303 p=17984 u=alessonviana n=ansible | ERROR! the playbook: /Users/alessonviana/Documents/Projetos/ does not appear to be a file

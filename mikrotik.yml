@@ -3,6 +3,5 @@
 - name: Confiure Mikrotik on Alesson's home
   hosts: mikrotik
   connection: network_cli
-#  become: yes
   roles:
     - configurations
