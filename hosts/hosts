@@ -2,17 +2,13 @@
 192.168.23.1
 
 [mikrotik:vars]
-#ansible_user=alesson
-#ansible_password=alesson23
 ansible_connection=network_cli
 ansible_network_os=routeros
 ansible_port=22
-#ansible_become=yes
-#ansible_connection=ssh
-#ansible_network_os=routeros
 
 
-#[mikrotik_default]
-#192.168.88.1
+
+[mikrotik_default]
+192.168.88.1
 
 
