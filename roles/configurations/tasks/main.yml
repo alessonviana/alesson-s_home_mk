@@ -3,35 +3,31 @@
   community.routeros.command:
     commands:
         - /interface bridge add fast-forward=no name="{{ bridge_local }}"
-#        - /interface ethernet set [ find default-name=ether1 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full name=\ "ether1 "
-#        - set [ find default-name=ether2 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
-#        - set [ find default-name=ether3 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
-#        - set [ find default-name=ether4 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
-#        - set [ find default-name=ether5 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
-#        - /interface list add name=WAN add name=LAN
-#        - /interface wireless security-profiles
-#        - set [ find default=yes ] supplicant-identity=MikroTik add authentication-types=wpa-psk,wpa2-psk eap-methods="" management-protection=allowed mode=dynamic-keys name="{{ main_wifi }}" supplicant-identity="" wpa-pre-shared-key=""{{ wifi_password }}" wpa2-pre-shared-key=""{{ wifi_password }}"
-#        - add authentication-types=wpa-psk,wpa2-psk eap-methods="" management-protection=allowed mode=dynamic-keys name="{{ secondary_wifi }}" supplicant-identity="" wpa-pre-shared-key="{{ visitantes_password }}" wpa2-pre-shared-key="{{ visitantes_password }}"
-#        - /interface wireless set [ find default-name=wlan1 ] antenna-gain=0 country=brazil disabled=no frequency-mode=superchannel mode=ap-bridge name="wlan1 2.4" security-profile="{{ secondary_wifi }}" ssid="{{ secondary_wifi }}" station-roaming=enabled wireless-protocol=802.11
-#        - set [ find default-name=wlan2 ] antenna-gain=0 band=5ghz-a/n/ac country=no_country_set disabled=no frequency=5320 frequency-mode=superchannel mode=ap-bridge name="wlan2 5 G" security-profile="{{ main_wifi }}" ssid="{{ main_wifi }}" station-roaming=enabled wireless-protocol=802.11
-#        - /ip pool add name=dhcp ranges="{{ main_ranges }}"
-#        - /ip dhcp-server add address-pool=dhcp disabled=no interface={{ bridge_local }}" lease-time=1h40m name=dhcp1
-#        - /user group set full policy="local,telnet,ssh,ftp,reboot,read,write,policy,test,winbox,password,web,sniff,sensitive,api,romon,dude,tikapp"
-#        - /interface bridge port add bridge={{ bridge_local }}" interface=ether2 add bridge={{ bridge_local }}" interface=ether3 add bridge={{ bridge_local }}" interface=ether4 add bridge={{ bridge_local }}" interface=ether5 add bridge={{ bridge_local }}" interface="wlan1 2.4" add bridge={{ bridge_local }}" interface="wlan2 5 G"
-#        - /ip neighbor discovery-settings set discover-interface-list=dynamic
-#        - /interface list member add list=WAN add interface={{ bridge_local }}" list=LAN
-#        - /ip address add address="{{ gateway_addres }}"/24 interface=ether2 network="{{ network_address}}" add address=192.168.55.1/24 interface=ether5 network=192.168.55.0
-#        - /ip cloud set ddns-enabled=yes
-#        - /ip dhcp-client add disabled=no interface="ether1 "
-#        - /ip dhcp-server network add address="{{ network_address }}"/24 dns-server="{{ dns-server }}" gateway=""{{ gateway_addres }}"
-#        - /ip firewall filter add action=accept chain=forward dst-address-list=22 src-address-list=22
-#        - /ip firewall nat add action=masquerade chain=srcnat
-#        - /ip service set telnet disabled=yes set ftp port="{{ ftp_port }}" set www-ssl disabled=no
-#        - /ip ssh set allow-none-crypto=yes forwarding-enabled=remote
-#        - /ip upnp set enabled=yes
-#        - /ip upnp interfaces add interface={{ bridge_local }}" type=internal add type=external
-#        - /snmp set enabled=yes trap-version=2
-#        - /system clock set time-zone-name=""{{ time_zone }}"
-#        - /system identity set name="{{ rb_name }}"
-#        - /system scheduler
-#        - add comment="Reboot Router " interval=1d name="Reboot Router Every Day" on-event="/system reboot" policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon start-date=jul/07/2020 start-time=04:00:00
+        - /interface ethernet set [ find default-name=ether1 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full name=\ "ether1 "
+        - set [ find default-name=ether2 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+        - set [ find default-name=ether3 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+        - set [ find default-name=ether4 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+        - set [ find default-name=ether5 ] advertise=10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+        - /interface list add name=WAN add name=LAN
+        - /interface wireless security-profiles set [ find default=yes ] supplicant-identity=MikroTik add authentication-types=wpa-psk,wpa2-psk eap-methods="" management-protection=allowed mode=dynamic-keys name="{{ main_wifi }}" supplicant-identity="" wpa-pre-shared-key=""{{ wifi_password }}" wpa2-pre-shared-key=""{{ wifi_password }}" add authentication-types=wpa-psk,wpa2-psk eap-methods="" management-protection=allowed mode=dynamic-keys name=Visitantes_test supplicant-identity="" wpa-pre-shared-key="{{ visitantes_password }}" wpa2-pre-shared-key="{{ visitantes_password }}"
+        - /interface wireless set [ find default-name=wlan1 ] antenna-gain=0 country=brazil disabled=no frequency-mode=superchannel mode=ap-bridge name="wlan1 2.4" security-profile="{{ secondary_wifi }}" ssid="{{ secondary_wifi }}" station-roaming=enabled wireless-protocol=802.11 set [ find default-name=wlan2 ] antenna-gain=0 band=5ghz-a/n/ac country=no_country_set disabled=no frequency=5320 frequency-mode=superchannel mode=ap-bridge name="wlan2 5 G" security-profile="{{ main_wifi }}" ssid="{{ main_wifi }}" station-roaming=enabled wireless-protocol=802.11
+        - /ip pool add name=dhcp ranges="{{ main_ranges }}"
+        - /ip dhcp-server add address-pool=dhcp disabled=no interface={{ bridge_local }}" lease-time=1h40m name=dhcp1
+        - /user group set full policy="local,telnet,ssh,ftp,reboot,read,write,policy,test,winbox,password,web,sniff,sensitive,api,romon,dude,tikapp"
+        - /interface bridge port add bridge={{ bridge_local }}" interface=ether2 add bridge={{ bridge_local }}" interface=ether3 add bridge={{ bridge_local }}" interface=ether4 add bridge={{ bridge_local }}" interface=ether5 add bridge={{ bridge_local }}" interface="wlan1 2.4" add bridge={{ bridge_local }}" interface="wlan2 5 G"
+        - /ip neighbor discovery-settings set discover-interface-list=dynamic
+        - /interface list member add list=WAN add interface={{ bridge_local }}" list=LAN
+        - /ip address add address="{{ gateway_addres }}"/24 interface=ether2 network="{{ network_address}}" add address=192.168.55.1/24 interface=ether5 network=192.168.55.0
+        - /ip cloud set ddns-enabled=yes
+        - /ip dhcp-client add disabled=no interface="ether1 "
+        - /ip dhcp-server network add address="{{ network_address }}" dns-server=208.67.222.222,208.67.220.220,8.8.8.8 gateway=""{{ gateway_addres }}"
+        - /ip firewall filter add action=accept chain=forward dst-address-list=22 src-address-list=22
+        - /ip firewall nat add action=masquerade chain=srcnat
+        - /ip service set telnet disabled=yes set ftp port="{{ ftp_port }}" set www-ssl disabled=no
+        - /ip ssh set allow-none-crypto=yes forwarding-enabled=remote
+        - /ip upnp set enabled=yes
+        - /ip upnp interfaces add interface={{ bridge_local }}" type=internal add type=external
+        - /snmp set enabled=yes trap-version=2
+        - /system clock set time-zone-name=""{{ time_zone }}"
+        - /system identity set name="{{ rb_name }}"
+        - /system scheduler add comment="Reboot Router " interval=1d name="Reboot Router Every Day" on-event="/system reboot" policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon start-date=jul/07/2020 start-time=04:00:00
